@@ -1,65 +1,298 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pathbac - منصتك للنجاح في البكالوريا</title>
-  
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700&family=Readex+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+:root {
+  --bg-color: #070510;
+  --card-bg: rgba(255, 255, 255, 0.05);
+  --card-border: rgba(255, 255, 255, 0.14);
+  --accent-purple: #9333ea;
+  --accent-cyan: #38bdf8;
+  --text-main: #f8fafc;
+  --text-sub: #94a3b8;
+}
 
-  <!-- Link CSS -->
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Readex Pro', sans-serif;
+}
 
-  <!-- Header Section -->
-  <header class="glass-nav">
-    <div class="logo">
-      Pathbac <span class="badge">PRO</span>
-    </div>
-    <nav class="nav-links">
-      <a href="#">المميزات</a>
-      <a href="#">عن المنصة</a>
-      <a href="#">الأسعار وطرق الدفع</a>
-    </nav>
-    <div class="auth-buttons">
-      <button class="btn-secondary">تسجيل الدخول</button>
-      <button class="btn-primary">اشترك الآن</button>
-    </div>
-  </header>
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  padding: 24px;
+}
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-text">
-      <h1 class="hero-title-en">Shine bright in your Bac journey</h1>
-      <p class="hero-subtitle-ar">كل ما تحتاجه للنجاح في مكان واحد بذكاء وبلا شتات</p>
-    </div>
-    <div class="video-card">
-      <p>[ إطار فيديو الذكاء الاصطناعي ]</p>
-    </div>
-  </section>
+/* Dynamic Glowing Orbs (Aurora Effect) */
+.glow-orb {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(90px);
+  z-index: -1;
+  pointer-events: none;
+}
 
-  <!-- Tracks Section -->
-  <section class="tracks-section">
-    <h2 class="section-title">الشُّعب المتاحة على المنصة</h2>
-    <div class="tracks-grid">
-      <div class="track-card"><p>علوم تجريبية</p></div>
-      <div class="track-card"><p>رياضيات</p></div>
-      <div class="track-card"><p>تقني رياضي</p></div>
-      <div class="track-card"><p>لغات أجنبية</p></div>
-      <div class="track-card"><p>آداب وفلسفة</p></div>
-      <div class="track-card"><p>تسيير واقتصاد</p></div>
-    </div>
-  </section>
+.orb-1 {
+  top: -10%;
+  left: 10%;
+  width: 450px;
+  height: 450px;
+  background: rgba(147, 51, 234, 0.28); /* توهج بنفسجي أعمق وأوضح */
+  animation: pulse-orb 8s infinite alternate ease-in-out;
+}
 
-  <!-- Subscription Banner -->
-  <div class="sub-banner">
-    <p>اشتراك سنوي شامل بـ 3500 دج فقط | وصول كامل طوال السنة بدون إعلانات</p>
-    <button class="btn-primary">اشترك الآن</button>
-  </div>
+.orb-2 {
+  bottom: 5%;
+  right: 10%;
+  width: 500px;
+  height: 500px;
+  background: rgba(56, 189, 248, 0.22); /* توهج سماوي جذاب */
+  animation: pulse-orb 10s infinite alternate ease-in-out;
+}
 
-</body>
-</html>
+@keyframes pulse-orb {
+  0% { transform: scale(1) translateY(0); opacity: 0.6; }
+  100% { transform: scale(1.15) translateY(-20px); opacity: 0.9; }
+}
+
+/* Background Glitter Stars */
+.stars {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  background-image: 
+    radial-gradient(2px 2px at 25px 35px, #ffffff, rgba(0,0,0,0)),
+    radial-gradient(2.5px 2.5px at 60px 90px, rgba(147, 51, 234, 0.9), rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 120px 50px, #ffffff, rgba(0,0,0,0)),
+    radial-gradient(2.5px 2.5px at 180px 150px, rgba(56, 189, 248, 0.9), rgba(0,0,0,0)),
+    radial-gradient(1.5px 1.5px at 250px 200px, #ffffff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 340px 100px, rgba(147, 51, 234, 0.8), rgba(0,0,0,0));
+  background-repeat: repeat;
+  background-size: 320px 320px;
+  opacity: 0.8;
+  animation: twinkle 4s infinite alternate ease-in-out;
+}
+
+@keyframes twinkle {
+  0% { opacity: 0.4; }
+  100% { opacity: 0.9; }
+}
+
+/* Header Navbar */
+.glass-nav {
+  max-width: 1200px;
+  margin: 0 auto 50px auto;
+  padding: 16px 32px;
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.logo {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  direction: ltr;
+  text-shadow: 0 0 15px rgba(147, 51, 234, 0.6);
+}
+
+.logo .badge {
+  font-size: 11px;
+  padding: 3px 9px;
+  background: rgba(147, 51, 234, 0.3);
+  border: 1px solid #a855f7;
+  color: #e9d5ff;
+  border-radius: 6px;
+  box-shadow: 0 0 10px rgba(168, 85, 247, 0.4);
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+}
+
+.nav-links a {
+  color: var(--text-sub);
+  text-decoration: none;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #fff;
+  text-shadow: 0 0 12px rgba(56, 189, 248, 0.8);
+}
+
+.auth-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 1px solid var(--card-border);
+  color: var(--text-main);
+  padding: 10px 22px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #9333ea, #4f46e5);
+  border: none;
+  color: #fff;
+  padding: 10px 24px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  box-shadow: 0 4px 25px rgba(147, 51, 234, 0.5);
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 30px rgba(147, 51, 234, 0.8);
+  filter: brightness(1.1);
+}
+/* Hero Section */
+.hero {
+  max-width: 1200px;
+  margin: 0 auto 70px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 36px;
+}
+
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-title-en {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 44px;
+  font-weight: 700;
+  margin-bottom: 14px;
+  background: linear-gradient(180deg, #ffffff 20%, #94a3b8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+  text-shadow: 0 0 40px rgba(147, 51, 234, 0.3);
+}
+
+.hero-subtitle-ar {
+  color: var(--text-sub);
+  font-size: 19px;
+  text-align: center;
+}
+
+.video-card {
+  width: 100%;
+  max-width: 780px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--card-border);
+  border-radius: 24px;
+  height: 320px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(20px);
+  color: var(--text-sub);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: all 0.4s ease;
+}
+
+.video-card:hover {
+  border-color: rgba(147, 51, 234, 0.5);
+  box-shadow: 0 20px 60px rgba(147, 51, 234, 0.25);
+}
+
+/* Tracks Section */
+.tracks-section {
+  max-width: 1200px;
+  margin: 0 auto 50px auto;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 22px;
+  margin-bottom: 28px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.tracks-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 16px;
+}
+
+.track-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--card-border);
+  border-radius: 18px;
+  padding: 26px 16px;
+  text-align: center;
+  backdrop-filter: blur(20px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.track-card:hover {
+  transform: translateY(-6px);
+  border-color: #a855f7;
+  background: rgba(147, 51, 234, 0.1);
+  box-shadow: 0 10px 30px rgba(147, 51, 234, 0.35);
+}
+
+.track-card p {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+/* Subscription Banner */
+.sub-banner {
+  max-width: 1200px;
+  margin: 0 auto 30px auto;
+  background: rgba(147, 51, 234, 0.06);
+  border: 1px solid rgba(168, 85, 247, 0.4);
+  border-radius: 20px;
+  padding: 20px 36px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 10px 40px rgba(147, 51, 234, 0.15);
+}
+
+.sub-banner p {
+  font-size: 15px;
+  color: var(--text-main);
+}
